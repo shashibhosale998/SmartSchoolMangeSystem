@@ -1,0 +1,114 @@
+
+
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>ADMIN</h2>
+    <ul class="menu">
+      <li>
+        <a class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+
+      <!-- Student Dropdown -->
+      <li>
+        <input type="checkbox" id="student-menu">
+        <label for="student-menu">Student</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddStudent()">Add Student</a></li>
+          <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+          <li><a (click)="goToViewStudents()">View Students</a></li>
+          <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+        </ul>
+      </li>
+
+      <!-- Parent -->
+      <li><a (click)="goToParent()">Parent</a></li>
+
+      <!-- Teacher Dropdown -->
+      <li>
+        <input type="checkbox" id="teacher-menu">
+        <label for="teacher-menu">Teacher</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+          <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+          <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+          <li><a (click)="goToUpdateTeacher()">Update Teacher</a></li>
+        </ul>
+      </li>
+
+      <!-- User Dropdown -->
+      <li>
+        <input type="checkbox" id="user-menu">
+        <label for="user-menu">User</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddUser()">Add User</a></li>
+          <li><a (click)="goToUpdateUser()">Update User</a></li>
+          <li><a (click)="goToDeleteUser()">Delete User</a></li>
+          <li><a (click)="goToViewUsers()">View Users</a></li>
+        </ul>
+      </li>
+
+      <!-- Events -->
+      <li><a (click)="goToEvents()">Events</a></li>
+    </ul>
+  </aside>
+<div class="teacher-container">
+  <h2>View Teachers</h2>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      [(ngModel)]="searchQuery" 
+      (input)="onSearch()" 
+      placeholder="Search by Name (e.g., Shashikant)" 
+      class="search-input"
+    />
+  </div>
+
+  <!-- View All Teachers Button -->
+  <button (click)="loadTeachers()">View All Teachers</button>
+
+  <!-- Teachers Table -->
+  <table class="teacher-table">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Qualifications</th>
+        <th>Specialization</th>
+        <th>Experience</th>
+        <th>Gender</th>
+        <th>Marital Status</th>
+        <th>Date of Birth</th>
+        <th>Designation</th>
+        <th>Joining Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachers">
+        <td>{{ teacher.employeeId }}</td>
+        <td>{{ teacher.firstName }}</td>
+        <td>{{ teacher.middleName }}</td>
+        <td>{{ teacher.lastName }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.contactNo }}</td>
+        <td>{{ teacher.qualifications }}</td>
+        <td>{{ teacher.specializationSubject }}</td>
+        <td>{{ teacher.experience }}</td>
+        <td>{{ teacher.gender }}</td>
+        <td>{{ teacher.maritalStatus }}</td>
+        <td>{{ teacher.dateOfBirth | date }}</td>
+        <td>{{ teacher.designation }}</td>
+        <td>{{ teacher.joiningDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</div>

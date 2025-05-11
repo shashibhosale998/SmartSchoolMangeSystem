@@ -1,0 +1,77 @@
+
+
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>ADMIN</h2>
+    <ul class="menu">
+      <li>
+        <a class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+
+      <!-- Student Dropdown -->
+      <li>
+        <input type="checkbox" id="student-menu">
+        <label for="student-menu">Student</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddStudent()">Add Student</a></li>
+          <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+          <li><a (click)="goToViewStudents()">View Students</a></li>
+          <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+        </ul>
+      </li>
+
+      <!-- Parent -->
+      <li><a (click)="goToParent()">Parent</a></li>
+
+      <!-- Teacher Dropdown -->
+      <li>
+        <input type="checkbox" id="teacher-menu">
+        <label for="teacher-menu">Teacher</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+          <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+          <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+          <li><a (click)="goToUpdateTeacher()">Update Teacher</a></li>
+        </ul>
+      </li>
+
+      <!-- User Dropdown -->
+      <li>
+        <input type="checkbox" id="user-menu">
+        <label for="user-menu">User</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddUser()">Add User</a></li>
+          <li><a (click)="goToUpdateUser()">Update User</a></li>
+          <li><a (click)="goToDeleteUser()">Delete User</a></li>
+          <li><a (click)="goToViewUsers()">View Users</a></li>
+        </ul>
+      </li>
+
+      <!-- Events -->
+      <li><a (click)="goToEvents()">Events</a></li>
+    </ul>
+  </aside>
+
+  <div class="deleteuser-container">
+  <h2>Delete User by Username</h2>
+
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="Enter Username"
+      [(ngModel)]="username"
+      class="form-control"
+    />
+    <button (click)="deleteUser()" class="delete-btn">Delete User</button>
+  </div>
+
+  <p [class.error]="isError" [class.success]="!isError">{{ message }}</p>
+</div>
+
+</div>
+
+
+
+
+

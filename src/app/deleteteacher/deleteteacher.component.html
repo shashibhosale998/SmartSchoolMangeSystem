@@ -1,0 +1,120 @@
+
+
+
+
+
+
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>ADMIN</h2>
+    <ul class="menu">
+      <li>
+        <a class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+
+      <!-- Student Dropdown -->
+      <li>
+        <input type="checkbox" id="student-menu">
+        <label for="student-menu">Student</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddStudent()">Add Student</a></li>
+          <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+          <li><a (click)="goToViewStudents()">View Students</a></li>
+          <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+        </ul>
+      </li>
+
+      <!-- Parent -->
+      <li><a (click)="goToParent()">Parent</a></li>
+
+      <!-- Teacher Dropdown -->
+      <li>
+        <input type="checkbox" id="teacher-menu">
+        <label for="teacher-menu">Teacher</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+          <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+          <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+          <li><a (click)="goToUpdateTeacher()">Update Teacher</a></li>
+        </ul>
+      </li>
+
+      <!-- User Dropdown -->
+      <li>
+        <input type="checkbox" id="user-menu">
+        <label for="user-menu">User</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddUser()">Add User</a></li>
+          <li><a (click)="goToUpdateUser()">Update User</a></li>
+          <li><a (click)="goToDeleteUser()">Delete User</a></li>
+          <li><a (click)="goToViewUsers()">View Users</a></li>
+        </ul>
+      </li>
+
+      <!-- Events -->
+      <li><a (click)="goToEvents()">Events</a></li>
+    </ul>
+  </aside>
+<div class="teacher-delete-container">
+  <h2>Delete Teacher</h2>
+
+  <!-- Search by Teacher Name -->
+  <div class="search-container">
+    <input 
+      type="text" 
+      [(ngModel)]="teacherName" 
+      placeholder="Enter teacher name"
+      class="search-input" 
+    />
+    <button (click)="searchTeacherByName()">Search</button>
+  </div>
+
+  <!-- Message Display -->
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+  <!-- Teachers List -->
+  <div *ngIf="teachers.length > 0">
+    <table class="teacher-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Employee ID</th>
+          <th>Email</th>
+          <th>Contact Number</th>
+          <th>Designation</th>
+          <th>Joining Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of teachers">
+          <td>{{ teacher.firstName }} {{ teacher.middleName }} {{ teacher.lastName }}</td>
+          <td>{{ teacher.employeeId }}</td>
+          <td>{{ teacher.email }}</td>
+          <td>{{ teacher.contactNo }}</td>
+          <td>{{ teacher.designation }}</td>
+          <td>{{ teacher.joiningDate | date }}</td>
+          <td>
+            <button (click)="deleteTeacher(teacher.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- If no teachers found -->
+  <div *ngIf="teachers.length === 0 && teacherName.trim() !== ''">
+    <p>No teachers found matching the name "{{ teacherName }}"</p>
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+

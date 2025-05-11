@@ -1,0 +1,189 @@
+/* Layout */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #ecf0f1;
+  flex-direction: row;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu label {
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  background-color: #34495e;
+  border-radius: 4px;
+  color: white;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #1abc9c;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 15px;
+  display: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label + .submenu {
+  display: block;
+}
+
+.menu-btn {
+  display: block;
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+/* Add User Form Styling */
+.add-user-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-user-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.add-user-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-user-container input,
+.add-user-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.add-user-container button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-user-container button:hover {
+  background-color: #2980b9;
+}
+
+/* ------------------ */
+/* Responsive Styling */
+/* ------------------ */
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .add-user-container {
+    padding: 20px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu label, .menu a, .menu-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .add-user-container label {
+    font-size: 14px;
+  }
+
+  .add-user-container input,
+  .add-user-container select,
+  .add-user-container button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .sidebar h2 {
+    font-size: 18px;
+  }
+
+  .add-user-container h2 {
+    font-size: 20px;
+  }
+}

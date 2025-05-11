@@ -1,0 +1,301 @@
+/* =======================
+   Global Styles & Layout
+========================== */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* =======================
+   Dashboard Layout
+========================== */
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: #ecf0f1;
+  flex-direction: row;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu label {
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  background-color: #34495e;
+  border-radius: 4px;
+  color: white;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #1abc9c;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 15px;
+  display: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label + .submenu {
+  display: block;
+}
+
+.menu-btn {
+  display: block;
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* =======================
+   Main Content Area
+========================== */
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+/* =======================
+   Add User Form
+========================== */
+
+.add-user-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-user-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.add-user-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-user-container input,
+.add-user-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.add-user-container button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-user-container button:hover {
+  background-color: #2980b9;
+}
+
+/* =======================
+   Delete User Form
+========================== */
+
+.deleteuser-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.deleteuser-container h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Input Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input Field */
+input.form-control,
+.form-input {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input.form-control:focus,
+.form-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}
+
+/* Messages */
+.message-box,
+p {
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.error {
+  color: #e53935;
+}
+
+.success {
+  color: #43a047;
+}
+
+/* =======================
+   Responsive Styles
+========================== */
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .add-user-container,
+  .deleteuser-container {
+    padding: 24px 16px;
+    max-width: 100%;
+    margin: 30px 10px;
+  }
+
+  input.form-control,
+  .form-input,
+  .delete-btn,
+  .add-user-container button {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .add-user-container label {
+    font-size: 14px;
+  }
+
+  .add-user-container h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu label,
+  .menu a,
+  .menu-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  input.form-control,
+  .form-input,
+  .delete-btn,
+  .add-user-container button {
+    font-size: 14px;
+    padding: 9px 12px;
+  }
+
+  .sidebar h2 {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="container"> 
+    <div class="login-box">
+      <div class="image-container">
+        <img src="img2.jpg" alt="Investment Tree" class="tree-image">
+      </div>
+      <div class="form-container">
+        <!-- Static Title -->
+        <h2 class="login-title">Login</h2>
+        <form (ngSubmit)="onLogin()">
+          <div class="input-group">
+            <!-- Username Image on Left -->
+            <img src="usernameimg.png" alt="username-icon" class="username-image-left">
+            <div class="input-icon">
+              <i class="fa fa-user"></i>
+            </div>
+            <!-- Username Input -->
+            <input [(ngModel)]="users.username" name="username" type="text" placeholder="Username" class="input-field">
+          </div>
+          <div class="input-group">
+            <!-- Password Icon on Left -->
+            <img src="pass.png" alt="password-icon" class="password-image-left">
+            <div class="input-icon">
+              <i class="fa fa-lock"></i>
+            </div>
+            <!-- Password Eye Icon and Input -->
+            <img src="eye.png" alt="eye-icon" class="eye-icon">
+            <input [(ngModel)]="users.password" name="password" type="password" placeholder="Password" class="input-field">
+          </div>
+  
+          <!-- Forgot Password Link -->
+          <div class="forgot-password">
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+          
+          <!-- Login Button -->
+          <button type="submit" class="login-button">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,112 @@
+<div class="admin-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>ADMIN</h2>
+    <ul class="menu">
+       <li>
+        <a  class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+      <li>
+        <input type="checkbox" id="student-menu" />
+        <label for="student-menu">Student</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddStudent()">Add Student</a></li>
+          <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+          <li><a (click)="goToViewStudents()">View Students</a></li>
+          <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+        </ul>
+      </li>
+      <li><a (click)="goToParent()">Parent</a></li>
+      <li>
+        <input type="checkbox" id="teacher-menu" />
+        <label for="teacher-menu">Teacher</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+          <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+          <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+<li><a (click)="goToUpdateTeacher()">Update Teachers</a></li>
+          
+        </ul>
+      </li>
+      <li><a (click)="goToEvents()">Events</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>All Students</h2>
+
+    <div class="action-bar">
+      <button class="primary-button" (click)="fetchStudents()">Show All Students</button>
+    </div>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Search by full name"
+        [(ngModel)]="searchName"
+        (keyup.enter)="searchStudents()"
+      />
+      <button class="primary-button" (click)="searchStudents()">Search</button>
+      <button class="secondary-button" (click)="resetSearch()">Reset</button>
+    </div>
+
+    <div class="table-container" *ngIf="students.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Blood Group</th>
+            <th>Contact No</th>
+            <th>Emergency Contact No</th>
+            <th>Email</th>
+            <th>Permanent Address</th>
+            <th>Class</th>
+            <th>Division</th>
+            <th>Roll No</th>
+            <th>Student Image</th>
+            <th>Father Image</th>
+            <th>Mother Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.middleName || '-' }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>
+              {{ student.firstName }}
+              {{ student.middleName || '' }}
+              {{ student.lastName }}
+            </td>
+            <td>{{ student.dateOfBirth }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.bloodGroup || '-' }}</td>
+            <td>{{ student.contactNo }}</td>
+            <td>{{ student.emergencyContactNo || '-' }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.permanentAddress || '-' }}</td>
+            <td>{{ student.className || '-' }}</td>
+            <td>{{ student.division || '-' }}</td>
+            <td>{{ student.rollNo }}</td>
+            <td><img [src]="getImageUrl(student.studentImagePath)" alt="Student" /></td>
+            <td><img [src]="getImageUrl(student.fatherImagePath)" alt="Father" /></td>
+            <td><img [src]="getImageUrl(student.motherImagePath)" alt="Mother" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="students.length === 0" class="no-data">
+      No students to display. Click "Show All Students" to load data.
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,141 @@
+<div class="container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>ADMIN</h2>
+    <ul class="menu">
+      <!-- Student Dropdown -->
+        <li>
+        <a  class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+      <li>
+        <input type="checkbox" id="student-menu">
+        <label for="student-menu">Student</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddStudent()">Add Student</a></li>
+          <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+          <li><a (click)="goToViewStudents()">View Students</a></li>
+          <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+        </ul>
+      </li>
+
+      <li><a (click)="goToParent()">Parent</a></li>
+
+      <!-- Teacher Dropdown -->
+      <li>
+        <input type="checkbox" id="teacher-menu">
+        <label for="teacher-menu">Teacher</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+          <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+          <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+<li><a (click)="goToUpdateTeacher()">Update Teachers</a></li>
+            
+        </ul>
+      </li>
+
+      <li><a (click)="goToEvents()">Events</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="update-student-container">
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="fullNameSearch" placeholder="Enter full name (e.g., Shashikant Bhosale)" />
+        <button (click)="searchStudent()">Search</button>
+      </div>
+
+      <div *ngIf="selectedStudent" class="form-container">
+        <h2>Update Student</h2>
+
+        <form [formGroup]="studentForm" (ngSubmit)="updateStudent()">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name:</label>
+              <input formControlName="firstName" />
+            </div>
+            <div class="form-group">
+              <label>Middle Name:</label>
+              <input formControlName="middleName" />
+            </div>
+            <div class="form-group">
+              <label>Last Name:</label>
+              <input formControlName="lastName" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date of Birth:</label>
+              <input type="date" formControlName="dateOfBirth" />
+            </div>
+            <div class="form-group">
+              <label>Gender:</label>
+              <input formControlName="gender" />
+            </div>
+            <div class="form-group">
+              <label>Blood Group:</label>
+              <input formControlName="bloodGroup" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Contact No:</label>
+              <input formControlName="contactNo" />
+            </div>
+            <div class="form-group">
+              <label>Emergency Contact No:</label>
+              <input formControlName="emergencyContactNo" />
+            </div>
+            <div class="form-group">
+              <label>Email:</label>
+              <input type="email" formControlName="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Permanent Address:</label>
+            <input formControlName="permanentAddress" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Division:</label>
+              <input formControlName="division" />
+            </div>
+            <div class="form-group">
+              <label>Class Name:</label>
+              <input formControlName="className" />
+            </div>
+            <div class="form-group">
+              <label>Roll No:</label>
+              <input type="number" formControlName="rollNo" />
+            </div>
+          </div>
+
+          <!-- Images -->
+          <div class="image-upload">
+            <label>Student Image:</label>
+            <img [src]="getImageUrl(selectedStudent.studentImagePath)" width="100" alt="Student Image" />
+            <input type="file" (change)="onFileChange($event, 'student')" />
+          </div>
+
+          <div class="image-upload">
+            <label>Father Image:</label>
+            <img [src]="getImageUrl(selectedStudent.fatherImagePath)" width="100" alt="Father Image" />
+            <input type="file" (change)="onFileChange($event, 'father')" />
+          </div>
+
+          <div class="image-upload">
+            <label>Mother Image:</label>
+            <img [src]="getImageUrl(selectedStudent.motherImagePath)" width="100" alt="Mother Image" />
+            <input type="file" (change)="onFileChange($event, 'mother')" />
+          </div>
+
+          <button type="submit" [disabled]="!studentForm.valid">Update Student</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

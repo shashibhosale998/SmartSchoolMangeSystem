@@ -1,0 +1,113 @@
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>ADMIN</h2>
+      <ul class="menu">
+         <li>
+        <a  class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+        <li>
+          <input type="checkbox" id="student-menu">
+          <label for="student-menu">Student</label>
+          <ul class="submenu">
+            <li><a (click)="goToAddStudent()">Add Student</a></li>
+            <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+            <li><a (click)="goToViewStudents()">View Students</a></li>
+            <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+          </ul>
+        </li>
+        <li><a (click)="goToParent()">Parent</a></li>
+        <li>
+          <input type="checkbox" id="teacher-menu">
+          <label for="teacher-menu">Teacher</label>
+          <ul class="submenu">
+            <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+            <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+            <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+              <li><a (click)="goToUpdateTeacher()">Update Teachers</a></li>
+            
+
+            
+          </ul>
+        </li>
+        <li><a (click)="goToEvents()">Events</a></li>
+      </ul>
+    </div>
+  
+    <!-- Main Delete Section -->
+    <div class="delete-student-container">
+      <h2>Delete Student</h2>
+  
+      <!-- Search -->
+      <input type="text" [(ngModel)]="searchName" placeholder="Search by full name..." />
+      <button (click)="searchStudents()">Search</button>
+  
+      <p *ngIf="message">{{ message }}</p>
+  
+      <!-- Students Table -->
+      <table *ngIf="students.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Blood Group</th>
+            <th>Contact</th>
+            <th>Emergency Contact</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Class</th>
+            <th>Division</th>
+            <th>Roll No</th>
+            <th>Student Image</th>
+            <th>Father Image</th>
+            <th>Mother Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{ student.id }}</td>
+            <td>{{ student.firstName }} {{ student.middleName }} {{ student.lastName }}</td>
+            <td>{{ student.dateOfBirth }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.bloodGroup }}</td>
+            <td>{{ student.contactNo }}</td>
+            <td>{{ student.emergencyContactNo }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.permanentAddress }}</td>
+            <td>{{ student.className }}</td>
+            <td>{{ student.division }}</td>
+            <td>{{ student.rollNo }}</td>
+            
+            <!-- Images -->
+            <td>
+              <img *ngIf="student.studentImagePath"
+                   [src]="getImageUrl(student.studentImagePath)"
+                   alt="Student"
+                   width="60"
+                   height="60" />
+            </td>
+            <td>
+              <img *ngIf="student.fatherImagePath"
+                   [src]="getImageUrl(student.fatherImagePath)"
+                   alt="Father"
+                   width="60"
+                   height="60" />
+            </td>
+            <td>
+              <img *ngIf="student.motherImagePath"
+                   [src]="getImageUrl(student.motherImagePath)"
+                   alt="Mother"
+                   width="60"
+                   height="60" />
+            </td>
+  
+            <td><button (click)="deleteStudent(student.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,0 +1,169 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>ADMIN</h2>
+    <ul class="menu">
+      <li>
+        <a class="menu-btn" (click)="goToDashboard()">Dashboard</a>
+      </li>
+
+      <!-- Student Dropdown -->
+      <li>
+        <input type="checkbox" id="student-menu">
+        <label for="student-menu">Student</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddStudent()">Add Student</a></li>
+          <li><a (click)="goToDeleteStudent()">Delete Student</a></li>
+          <li><a (click)="goToViewStudents()">View Students</a></li>
+          <li><a (click)="goToUpdateStudents()">Update Students</a></li>
+        </ul>
+      </li>
+
+      <!-- Parent -->
+      <li><a (click)="goToParent()">Parent</a></li>
+
+      <!-- Teacher Dropdown -->
+      <li>
+        <input type="checkbox" id="teacher-menu">
+        <label for="teacher-menu">Teacher</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddTeacher()">Add Teacher</a></li>
+          <li><a (click)="goToDeleteTeacher()">Delete Teacher</a></li>
+          <li><a (click)="goToViewTeachers()">View Teachers</a></li>
+          <li><a (click)="goToUpdateTeacher()">Update Teacher</a></li>
+        </ul>
+      </li>
+
+      <!-- User Dropdown -->
+      <li>
+        <input type="checkbox" id="user-menu">
+        <label for="user-menu">User</label>
+        <ul class="submenu">
+          <li><a (click)="goToAddUser()">Add User</a></li>
+          <li><a (click)="goToUpdateUser()">Update User</a></li>
+          <li><a (click)="goToDeleteUser()">Delete User</a></li>
+          <li><a (click)="goToViewUsers()">View Users</a></li>
+        </ul>
+      </li>
+
+      <!-- Events -->
+      <li><a (click)="goToEvents()">Events</a></li>
+    </ul>
+  </aside>
+<div class="form-container">
+  <h2>Add Teacher</h2>
+  <form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+
+      <label>
+        Employee ID
+        <input formControlName="employeeId" name="employeeId" placeholder="Enter Employee ID" required />
+      </label>
+
+      <label>
+        First Name
+        <input formControlName="firstName" name="firstName" placeholder="Enter First Name" required />
+      </label>
+
+      <label>
+        Middle Name
+        <input formControlName="middleName" name="middleName" placeholder="Enter Middle Name" />
+      </label>
+
+      <label>
+        Last Name
+        <input formControlName="lastName" name="lastName" placeholder="Enter Last Name" required />
+      </label>
+
+      <label>
+        Permanent Address
+        <input formControlName="permanentAddress" name="permanentAddress" placeholder="Enter Address" required />
+      </label>
+
+      <label>
+        Qualifications
+        <input formControlName="qualifications" name="qualifications" placeholder="Enter Qualifications" required />
+      </label>
+
+      <label>
+        Specialization Subject
+        <input formControlName="specializationSubject" name="specializationSubject" placeholder="Subject Expertise" required />
+      </label>
+
+      <label>
+        Email
+        <input formControlName="email" name="email" type="email" placeholder="Enter Email" required />
+      </label>
+
+      <label>
+        Contact Number
+        <input formControlName="contactNo" name="contactNo" placeholder="Enter Contact Number" required />
+      </label>
+
+      <label>
+        Experience
+        <input formControlName="experience" name="experience" placeholder="e.g. 5 years" required />
+      </label>
+
+      <label>
+        Gender
+        <select formControlName="gender" name="gender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label>
+        Marital Status
+        <select formControlName="maritalStatus" name="maritalStatus" required>
+          <option value="" disabled selected>Select Marital Status</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+        </select>
+      </label>
+
+      <label>
+        Date of Birth
+        <input formControlName="dateOfBirth" name="dateOfBirth" type="date" required />
+      </label>
+
+      <label>
+        Designation
+        <input formControlName="designation" name="designation" placeholder="Enter Designation" required />
+      </label>
+
+      <label>
+        Blood Group
+        <input formControlName="bloodGroup" name="bloodGroup" placeholder="Enter Blood Group" required />
+      </label>
+
+      <label>
+        Joining Date
+        <input formControlName="joiningDate" name="joiningDate" type="date" required />
+      </label>
+
+    </div>
+
+    <button type="submit" [disabled]="teacherForm.invalid">Add Teacher</button>
+  </form>
+</div>
+
+</div>
